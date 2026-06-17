@@ -13,7 +13,7 @@ export function useLogin() {
     onSuccess: (data) => {
       setToken(data.access_token);
       localStorage.setItem('access_token', data.access_token);
-      router.push(routes.dashboard.clients);
+      router.push(routes.dashboard.clients());
     },
   });
 }
@@ -27,7 +27,7 @@ export function useRegister() {
     onSuccess: (data) => {
       setToken(data.access_token);
       localStorage.setItem('access_token', data.access_token);
-      router.push(routes.dashboard.clients);
+      router.push(routes.dashboard.clients());
     },
   });
 }

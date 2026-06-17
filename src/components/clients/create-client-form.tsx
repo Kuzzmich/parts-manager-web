@@ -23,11 +23,18 @@ export default function CreateClientForm() {
 
   const { mutate, isPending, error } = useCreateClient();
   const onSubmit = (data: CreateClientForm) => {
-    mutate(data, {
-      onSuccess: () => {
-        reset();
+    mutate(
+      {
+        ...data,
+        inn: data.inn || undefined,
+        notes: data.notes || undefined,
       },
-    });
+      {
+        onSuccess: () => {
+          reset();
+        },
+      },
+    );
   };
 
   return (
